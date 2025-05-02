@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Markaza Nurul Yaqiin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+    }
+    .fade-in {
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
+
+  <!-- Splash Screen -->
+  <section id="splash-screen" class="fade-in flex flex-col items-center justify-center space-y-4">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Star_and_Crescent.svg/120px-Star_and_Crescent.svg.png" alt="Markaza Nurul Yaqiin Logo" class="w-24 h-24" />
+    <h1 class="text-3xl font-extrabold text-indigo-700">Markaza Nurul Yaqiin</h1>
+    <p class="text-lg text-gray-600 italic">Baga Nagaan Dhuftan!</p>
+    <p class="text-sm text-gray-500">Markaza Nurul Yaqiin – Barnoota Quraanaa fi Amantii Sirrii!</p>
+    <div class="w-16 h-1 bg-indigo-500 rounded-full animate-pulse"></div>
+  </section>
+
+  <!-- Language Selection -->
+  <section id="language-selection" class="hidden max-w-md w-full mt-10 p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold mb-4">Afaan Filadhu:</h2>
+    <div class="flex flex-col space-y-3">
+      <button class="language-btn py-2 px-4 rounded border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white transition">Afaan Oromo</button>
+      <button class="language-btn py-2 px-4 rounded border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white transition">Arabic</button>
+      <button class="language-btn py-2 px-4 rounded border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white transition">English</button>
+    </div>
+  </section>
+
+  <!-- Login / Sign Up -->
+  <section id="auth-section" class="hidden max-w-md w-full mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div id="login-form" class="space-y-4">
+      <h2 class="text-xl font-semibold mb-4">Seeni</h2>
+      <input type="text" placeholder="Email ykn Lakk. Bilbila" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <input type="password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <button class="w-full bg-indigo-600 text-white py-3 rounded hover:bg-indigo-700 transition">Seeni</button>
+      <p class="text-sm text-indigo-600 cursor-pointer hover:underline">Password dagatte? Irra Deebi’i</p>
+      <p class="text-center text-gray-600 mt-4">👉 Akkuma duraan galmaa’e? <span id="show-signup" class="text-indigo-600 cursor-pointer hover:underline">Galmaa’i</span></p>
+    </div>
+    <div id="signup-form" class="space-y-4 hidden">
+      <h2 class="text-xl font-semibold mb-4">Galmaa’i</h2>
+      <input type="text" placeholder="Maqaa Guutuu" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <input type="text" placeholder="Lakk. Bilbila" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option>Filannoo Afaanii</option>
+        <option>Afaan Oromo</option>
+        <option>Arabic</option>
+        <option>English</option>
+      </select>
+      <input type="password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <button class="w-full bg-indigo-600 text-white py-3 rounded hover:bg-indigo-700 transition">Galmaa’i</button>
+      <p class="text-center text-gray-600 mt-4">👉 Dursee seentee? <span id="show-login" class="text-indigo-600 cursor-pointer hover:underline">Seeni</span></p>
+    </div>
+  </section>
+
+  <!-- Home Screen -->
+  <section id="home-screen" class="hidden max-w-4xl w-full mt-10 p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-6">Baga Nagaan Dhuftan, <span id="user-name">Barataa</span>!</h2>
+    <p class="mb-6 text-gray-700">Barnoota kee itti fufi.</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-book-open fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Barnoota Quraanaa</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-scroll fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Tafsiira</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-microphone-alt fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Tajwiida</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-book fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Hadiisa</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-calendar-alt fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Tartiiba Barnootaa</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-chalkboard-teacher fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Ustaazoota</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-bell fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Beekamtii</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-id-card fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">ID Barataa</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-microphone fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Imo Voice Club</span>
+      </a>
+      <a href="#" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-language fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Gulaallii Afaanii</span>
+      </a>
+      <a href="#" id="barattoota-link" class="feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer">
+        <i class="fas fa-users fa-3x text-indigo-600 mb-3"></i>
+        <span class="font-semibold">Barattoota</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Barattoota Section -->
+  <section id="barattoota-section" class="hidden max-w-4xl w-full mt-10 p-6 bg-white rounded-lg shadow-md overflow-x-auto">
+    <h2 class="text-2xl font-bold mb-6">Tartiiba ID.NO fi Maqaa Barattootaa</h2>
+    <table class="min-w-full border border-gray-300 rounded-lg overflow-hidden">
+      <thead class="bg-indigo-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-2 text-left">ID.NO</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Maqaa Barataa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="border border-gray-300 px-4 py-2">1</td><td class="border border-gray-300 px-4 py-2">Alewya Yasin</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">2</td><td class="border border-gray-300 px-4 py-2">Alfiyaa Nasir</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">3</td><td class="border border-gray-300 px-4 py-2">Rahma</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">6</td><td class="border border-gray-300 px-4 py-2">Ummu Reyhaan Aliyyii</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">7</td><td class="border border-gray-300 px-4 py-2">Jamu Gali Abatamam</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">10</td><td class="border border-gray-300 px-4 py-2">Fadila Husein Hassan</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">12</td><td class="border border-gray-300 px-4 py-2">Fadiilaa Biyyaa</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">13</td><td class="border border-gray-300 px-4 py-2">Aishaa Rashid</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">15</td><td class="border border-gray-300 px-4 py-2">Sude Ahmadi Kaml</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">16</td><td class="border border-gray-300 px-4 py-2">Shuguxii Naasir</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">17</td><td class="border border-gray-300 px-4 py-2">Ummu Faami</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">18</td><td class="border border-gray-300 px-4 py-2">Anuwar Taajuddin</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">19</td><td class="border border-gray-300 px-4 py-2">Hanaa Tamasgeen</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">20</td><td class="border border-gray-300 px-4 py-2">Nuradin Jibirili Garisa</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">23</td><td class="border border-gray-300 px-4 py-2">Ahmadi Kamal</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">24</td><td class="border border-gray-300 px-4 py-2">Dammee</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">25</td><td class="border border-gray-300 px-4 py-2">Ummii Murteesa H/Mohammad</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">27</td><td class="border border-gray-300 px-4 py-2">Aishaa Abdullaah Dekebo</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">28</td><td class="border border-gray-300 px-4 py-2">Kalifa</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">29</td><td class="border border-gray-300 px-4 py-2">Rihana Siraaj</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">30</td><td class="border border-gray-300 px-4 py-2">Siinboonee Bilaal</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">31</td><td class="border border-gray-300 px-4 py-2">Sabonaa Jamaal</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">34</td><td class="border border-gray-300 px-4 py-2">Warqii Maammaa Hamiid</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">36</td><td class="border border-gray-300 px-4 py-2">Mominaa Shekaadir</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">38</td><td class="border border-gray-300 px-4 py-2">Muslima Ahimad</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">39</td><td class="border border-gray-300 px-4 py-2">Muslihaa Beyya</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">40</td><td class="border border-gray-300 px-4 py-2">Faxuma Jamal</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">41</td><td class="border border-gray-300 px-4 py-2">Faridaa Habib Said</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">43</td><td class="border border-gray-300 px-4 py-2">Umu Mas’ud Saaliha Jihaad</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">44</td><td class="border border-gray-300 px-4 py-2">Siifaan Huseen Bashiir</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">47</td><td class="border border-gray-300 px-4 py-2">Dr Michuu H/ Mammo</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">48</td><td class="border border-gray-300 px-4 py-2">Aliyaa Mahammad Seid</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">49</td><td class="border border-gray-300 px-4 py-2">Kadija Xahiri</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">52</td><td class="border border-gray-300 px-4 py-2">Tayibaa H/Muhammad</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">58</td><td class="border border-gray-300 px-4 py-2">Sumayya Muhammad K/Huseen</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">59</td><td class="border border-gray-300 px-4 py-2">Saliha Mohamed</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">60</td><td class="border border-gray-300 px-4 py-2">Abdurazaq</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">61</td><td class="border border-gray-300 px-4 py-2">Rahaa Tamaam</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">63</td><td class="border border-gray-300 px-4 py-2">Fatiha Temam</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">64</td><td class="border border-gray-300 px-4 py-2">Fatimaa Jihaad</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">65</td><td class="border border-gray-300 px-4 py-2">Caaltuu H/Htira</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">66</td><td class="border border-gray-300 px-4 py-2">Biniyaam</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">67</td><td class="border border-gray-300 px-4 py-2">Nuurituu</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">71</td><td class="border border-gray-300 px-4 py-2">Sitina Gashuna</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">75</td><td class="border border-gray-300 px-4 py-2">Jamiillaa Musxafaa Abdalla</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">76</td><td class="border border-gray-300 px-4 py-2">Abdurahmaan Zaakir</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">79</td><td class="border border-gray-300 px-4 py-2">Iman Tamam A/fixaa</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">80</td><td class="border border-gray-300 px-4 py-2">Badhatuu Usmaili</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">82</td><td class="border border-gray-300 px-4 py-2">Faxima Shidiriis</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">85</td><td class="border border-gray-300 px-4 py-2">Obsituu Waa Hundaa</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">86</td><td class="border border-gray-300 px-4 py-2">Amiinaa Bedruddin</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">87</td><td class="border border-gray-300 px-4 py-2">Jamilaa H/Qurxii Bulloo</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">93</td><td class="border border-gray-300 px-4 py-2">Janati Xahiri</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">94</td><td class="border border-gray-300 px-4 py-2">Nasuhaa Mohammad</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">95</td><td class="border border-gray-300 px-4 py-2">Daraartuu Nasriyyuu</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">97</td><td class="border border-gray-300 px-4 py-2">Dureetti Ibrahim Ahmed</td></tr>
+        <tr><td class="border border-gray-300 px-4 py-2">98</td><td class="border border-gray-300 px-4 py-2">Zubeyda Umer</td></tr>
+      </tbody>
+    </table>
+    <button id="back-to-home" class="mt-6 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition">Deebi'i Gara Fuula Duraa</button>
+  </section>
+
+  <!-- Student Dashboard Section -->
+  <section id="student-dashboard" class="hidden max-w-4xl w-full mt-10 p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-6">Student Dashboard - Barataa</h2>
+    <div class="mb-6">
+      <h3 class="text-xl font-semibold mb-2">Today's Attendance Status</h3>
+      <p class="text-green-600 font-semibold">Present</p>
+    </div>
+    <div class="mb-6">
+      <h3 class="text-xl font-semibold mb-2">Attendance History</h3>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>2024-06-01: Present</li>
+        <li>2024-05-31: Absent</li>
+        <li>2024-05-30: Present</li>
+        <li>2024-05-29: Present</li>
+        <li>2024-05-28: Present</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">Monthly Summary</h3>
+      <p class="text-gray-700">Present: 20 days, Absent: 2 days</p>
+    </div>
+    <button id="back-to-home-from-student" class="mt-6 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition">Deebi'i Gara Fuula Duraa</button>
+  </section>
+
+  <!-- Admin Dashboard Section -->
+  <section id="admin-dashboard" class="hidden max-w-4xl w-full mt-10 p-6 bg-white rounded-lg shadow-md overflow-x-auto">
+    <h2 class="text-2xl font-bold mb-6">Admin Dashboard</h2>
+    <div class="mb-4 flex flex-wrap gap-4">
+      <input type="date" id="filter-date" class="p-2 border border-gray-300 rounded" />
+      <select id="filter-class" class="p-2 border border-gray-300 rounded">
+        <option value="">Filannoo Kutaa</option>
+        <option value="class1">Kutaa 1</option>
+        <option value="class2">Kutaa 2</option>
+        <option value="class3">Kutaa 3</option>
+      </select>
+      <button id="filter-btn" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Filter</button>
+      <button id="export-pdf" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">Export PDF</button>
+      <button id="export-excel" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Export Excel</button>
+    </div>
+    <table class="min-w-full border border-gray-300 rounded-lg overflow-hidden">
+      <thead class="bg-indigo-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-2 text-left">ID.NO</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Maqaa Barataa</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Attendance</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Mark Attendance</th>
+        </tr>
+      </thead>
+      <tbody id="admin-student-list">
+        <!-- Student rows will be inserted here -->
+      </tbody>
+    </table>
+    <button id="back-to-home-from-admin" class="mt-6 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition">Deebi'i Gara Fuula Duraa</button>
+  </section>
+
+  <script>
+    // Simple navigation simulation
+    const splashScreen = document.getElementById('splash-screen');
+    const languageSelection = document.getElementById('language-selection');
+    const authSection = document.getElementById('auth-section');
+    const homeScreen = document.getElementById('home-screen');
+    const showSignupBtn = document.getElementById('show-signup');
+    const showLoginBtn = document.getElementById('show-login');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const userNameSpan = document.getElementById('user-name');
+
+    // After 2.5 seconds, show language selection
+    setTimeout(() => {
+      splashScreen.classList.add('hidden');
+      languageSelection.classList.remove('hidden');
+    }, 2500);
+
+    // Language selection buttons
+    document.querySelectorAll('.language-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        languageSelection.classList.add('hidden');
+        authSection.classList.remove('hidden');
+      });
+    });
+
+    // Show signup form
+    showSignupBtn.addEventListener('click', () => {
+      loginForm.classList.add('hidden');
+      signupForm.classList.remove('hidden');
+    });
+
+    // Show login form
+    showLoginBtn.addEventListener('click', () => {
+      signupForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    });
+
+    // Simulate login success
+    authSection.querySelector('button').addEventListener('click', () => {
+      // For demo, just show home screen with user name
+      const userName = "Barataa"; // Placeholder, could be from form input
+      authSection.classList.add('hidden');
+      homeScreen.classList.remove('hidden');
+      userNameSpan.textContent = userName;
+    });
+
+    // Add navigation cards for Student and Admin Dashboards
+    const homeGrid = homeScreen.querySelector('div.grid');
+    const studentDashboardLink = document.createElement('a');
+    studentDashboardLink.href = '#';
+    studentDashboardLink.id = 'student-dashboard-link';
+    studentDashboardLink.className = 'feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer';
+    studentDashboardLink.innerHTML = '<i class="fas fa-user fa-3x text-indigo-600 mb-3"></i><span class="font-semibold">Student Dashboard</span>';
+    homeGrid.appendChild(studentDashboardLink);
+
+    const adminDashboardLink = document.createElement('a');
+    adminDashboardLink.href = '#';
+    adminDashboardLink.id = 'admin-dashboard-link';
+    adminDashboardLink.className = 'feature-card flex flex-col items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition cursor-pointer';
+    adminDashboardLink.innerHTML = '<i class="fas fa-user-shield fa-3x text-indigo-600 mb-3"></i><span class="font-semibold">Admin Dashboard</span>';
+    homeGrid.appendChild(adminDashboardLink);
+
+    // Navigation event listeners
+    studentDashboardLink.addEventListener('click', () => {
+      homeScreen.classList.add('hidden');
+      studentDashboard.classList.remove('hidden');
+    });
+
+    adminDashboardLink.addEventListener('click', () => {
+      homeScreen.classList.add('hidden');
+      adminDashboard.classList.remove('hidden');
+      populateAdminStudentList();
+    });
+
+    // Back buttons event listeners
+    backToHomeFromStudentBtn.addEventListener('click', () => {
+      studentDashboard.classList.add('hidden');
+      homeScreen.classList.remove('hidden');
+    });
+
+    backToHomeFromAdminBtn.addEventListener('click', () => {
+      adminDashboard.classList.add('hidden');
+      homeScreen.classList.remove('hidden');
+    });
+
+    // Populate admin student list table
+    function populateAdminStudentList() {
+      const students = [
+        { id: 1, name: "Alewya Yasin" },
+        { id: 2, name: "Alfiyaa Nasir" },
+        { id: 3, name: "Rahma" },
+        { id: 6, name: "Ummu Reyhaan Aliyyii" },
+        { id: 7, name: "Jamu Gali Abatamam" },
+        { id: 10, name: "Fadila Husein Hassan" },
+        { id: 12, name: "Fadiilaa Biyyaa" },
+        { id: 13, name: "Aishaa Rashid" },
+        { id: 15, name: "Sude Ahmadi Kaml" },
+        { id: 16, name: "Shuguxii Naasir" },
+        { id: 17, name: "Ummu Faami" },
+        { id: 18, name: "Anuwar Taajuddin" },
+        { id: 19, name: "Hanaa Tamasgeen" },
+        { id: 20, name: "Nuradin Jibirili Garisa" },
+        { id: 23, name: "Ahmadi Kamal" },
+        { id: 24, name: "Dammee" },
+        { id: 25, name: "Ummii Murteesa H/Mohammad" },
+        { id: 27, name: "Aishaa Abdullaah Dekebo" },
+        { id: 28, name: "Kalifa" },
+        { id: 29, name: "Rihana Siraaj" },
+        { id: 30, name: "Siinboonee Bilaal" },
+        { id: 31, name: "Sabonaa Jamaal" },
+        { id: 34, name: "Warqii Maammaa Hamiid" },
+        { id: 36, name: "Mominaa Shekaadir" },
+        { id: 38, name: "Muslima Ahimad" },
+        { id: 39, name: "Muslihaa Beyya" },
+        { id: 40, name: "Faxuma Jamal" },
+        { id: 41, name: "Faridaa Habib Said" },
+        { id: 43, name: "Umu Mas’ud Saaliha Jihaad" },
+        { id: 44, name: "Siifaan Huseen Bashiir" },
+        { id: 47, name: "Dr Michuu H/ Mammo" },
+        { id: 48, name: "Aliyaa Mahammad Seid" },
+        { id: 49, name: "Kadija Xahiri" },
+        { id: 52, name: "Tayibaa H/Muhammad" },
+        { id: 58, name: "Sumayya Muhammad K/Huseen" },
+        { id: 59, name: "Saliha Mohamed" },
+        { id: 60, name: "Abdurazaq" },
+        { id: 61, name: "Rahaa Tamaam" },
+        { id: 63, name: "Fatiha Temam" },
+        { id: 64, name: "Fatimaa Jihaad" },
+        { id: 65, name: "Caaltuu H/Htira" },
+        { id: 66, name: "Biniyaam" },
+        { id: 67, name: "Nuurituu" },
+        { id: 71, name: "Sitina Gashuna" },
+        { id: 75, name: "Jamiillaa Musxafaa Abdalla" },
+        { id: 76, name: "Abdurahmaan Zaakir" },
+        { id: 79, name: "Iman Tamam A/fixaa" },
+        { id: 80, name: "Badhatuu Usmaili" },
+        { id: 82, name: "Faxima Shidiriis" },
+        { id: 85, name: "Obsituu Waa Hundaa" },
+        { id: 86, name: "Amiinaa Bedruddin" },
+        { id: 87, name: "Jamilaa H/Qurxii Bulloo" },
+        { id: 93, name: "Janati Xahiri" },
+        { id: 94, name: "Nasuhaa Mohammad" },
+        { id: 95, name: "Daraartuu Nasriyyuu" },
+        { id: 97, name: "Dureetti Ibrahim Ahmed" },
+        { id: 98, name: "Zubeyda Umer" }
+      ];
+      adminStudentList.innerHTML = '';
+      students.forEach(student => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="border border-gray-300 px-4 py-2">${student.id}</td>
+          <td class="border border-gray-300 px-4 py-2">${student.name}</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <select class="border border-gray-300 rounded p-1">
+              <option value="present">Present</option>
+              <option value="absent">Absent</option>
+            </select>
+          </td>
+          <td class="border border-gray-300 px-4 py-2 text-center">
+            <button class="mark-attendance-btn bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition">Mark</button>
+          </td>
+        `;
+        adminStudentList.appendChild(tr);
+      });
+    }
+  </script>
+</body>
+</html>
